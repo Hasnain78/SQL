@@ -1,0 +1,99 @@
+Q1. Your given a products table, which contains data about different Microsoft Azure cloud products.
+Output all the data, in all the columns.
+========================================================================================================
+                                select * from products
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Q2. Given the reviews table, write a query to retrieve all 3-star reviews using the SQL WHERE clause. Only display 
+the user_id and stars columns.
+========================================================================================================
+                                select user_id,stars from reviews
+                                where stars=3;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Q3. Let's practice using AND along with WHERE to filter Amazon reviews based on all 4 of these conditions:
+* the review should have 4 or more stars
+* the review ID is less than 6000
+* the review ID is more than 2000
+* the review can't come from user 142
+Pro Tip: Try coding up, and executing, each command, one at a time. It's too easy to try to code this all up in one go, 
+and mess something up!
+========================================================================================================
+                                  SELECT * FROM reviews
+                                  WHERE stars>=4 AND review_id<6000 AND review_id>2000
+                                  AND user_id!=142;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Q4. Let's practice using AND along with WHERE to filter Amazon reviews based on these two conditions:
+* the start count is greater than 2, and less than or equal to 4
+* the review must come from either user 123, 265, or 362
+========================================================================================================
+                                    SELECT * from reviews
+                                    WHERE stars>2 and stars<=4 
+                                          AND user_id in (123,265,362);
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Q5. Imagine you are a Data Analyst working at CVS Pharmacy, and you had access to pharmacy sales data. Use the BETWEEN SQL 
+command to find data on medicines:
+
+which sold between 100,000 units and 105,000 units
+AND were manufactured by either Biogen, AbbVie, or Eli Lilly
+Output the manufacturer name, drug name, and the # of units sold.
+========================================================================================================
+                                SELECT manufacturer,drug,units_sold FROM pharmacy_sales
+                                WHERE units_sold BETWEEN 100000 AND 105000
+                                      AND manufacturer in ('Biogen','AbbVie','Eli Lilly');
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Q6. Imagine you are a Data Analyst working at CVS Pharmacy, and you had access to pharmacy sales data. Use the IN SQL command to 
+find data on medicines:
+* which were manufactured by either Roche, Bayer, or AstraZeneca
+* and did not sell between 55,000 and 550,000 units
+Output the manufacturer name, drug name, and the # of units sold. for all the medicines which match that criteria.
+=====================================================================================================================
+                      SELECT manufacturer,drug,units_sold FROM pharmacy_sales
+                      WHERE manufacturer in ('Roche','Bayer','AstraZeneca')
+                            AND units_sold NOT BETWEEN 55000 and 550000;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Q7. You have a table of 1000 customer records from a small-business based in Australia.
+
+Find all customers whose first name starts with "F" and the last letter in their last name is "ck".
+=====================================================================================================================
+                      SELECT * FROM customers
+                      where customer_name like 'F%' AND customer_name like '%ck'
+                      LIMIT 20;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Q8. You have a table of 1000 customer records from a small-business based in Australia.
+
+Find all customers where the 2nd and 3rd letter in their name is "e".
+Example: "Reece Smith"
+====================================================================================================================================
+SELECT * FROM customers 
+where customer_name like '_ee%'
+LIMIT 20
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Q9. You have a table of 1000 customer records from a small-business based in Australia.
+
+Find all customers who are between the ages of 18 and 22 (inclusive), live in either Victoria, Tasmania, Queensland, 
+their gender isn't "n/a", and their name starts with either 'A' or 'B'.
+=======================================================================================================================================
+SELECT * FROM customers 
+where age between 18 AND 22 
+      AND state in ('Victoria','Tasmania','Queensland')
+      AND gender NOT LIKE 'n/a'
+      AND (customer_name LIKE 'A%' or customer_name LIKE 'B%')
+LIMIT 20;
+
+--------------------------------------------------------------------------------------------------------------------------------------
