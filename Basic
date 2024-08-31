@@ -1,6 +1,6 @@
 Q1. Your given a products table, which contains data about different Microsoft Azure cloud products.
 Output all the data, in all the columns.
-========================================================================================================
+=======================================================================================================================
                                 select * from products
 
 
@@ -8,7 +8,7 @@ Output all the data, in all the columns.
 
 Q2. Given the reviews table, write a query to retrieve all 3-star reviews using the SQL WHERE clause. Only display 
 the user_id and stars columns.
-========================================================================================================
+======================================================================================================================
                                 select user_id,stars from reviews
                                 where stars=3;
 
@@ -78,9 +78,9 @@ Q8. You have a table of 1000 customer records from a small-business based in Aus
 Find all customers where the 2nd and 3rd letter in their name is "e".
 Example: "Reece Smith"
 ====================================================================================================================================
-SELECT * FROM customers 
-where customer_name like '_ee%'
-LIMIT 20
+                              SELECT * FROM customers 
+                              where customer_name like '_ee%'
+                              LIMIT 20
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -89,11 +89,11 @@ Q9. You have a table of 1000 customer records from a small-business based in Aus
 Find all customers who are between the ages of 18 and 22 (inclusive), live in either Victoria, Tasmania, Queensland, 
 their gender isn't "n/a", and their name starts with either 'A' or 'B'.
 =======================================================================================================================================
-SELECT * FROM customers 
-where age between 18 AND 22 
-      AND state in ('Victoria','Tasmania','Queensland')
-      AND gender NOT LIKE 'n/a'
-      AND (customer_name LIKE 'A%' or customer_name LIKE 'B%')
-LIMIT 20;
+                                SELECT * FROM customers 
+                                where age between 18 AND 22 
+                                      AND state in ('Victoria','Tasmania','Queensland')
+                                      AND gender NOT LIKE 'n/a'
+                                      AND (customer_name LIKE 'A%' or customer_name LIKE 'B%')
+                                LIMIT 20;
 
 --------------------------------------------------------------------------------------------------------------------------------------
